@@ -60,3 +60,14 @@ matlab大作业是车标不是车牌，改了重新打印
 github desktop写一下，ftp，smb协议写一下，学yolo
 
 为什么这两天看到目标检测，都叫Object Detection，齐佳豪那个都是Target Detetion，水下目标他那个叫UTD，到底哪个？
+
+
+
+## 22.6.8
+
+fps超过30叫实时目标检测算法
+
+yolov1看完了再看v2
+
+为什么BN和Dropout不能一起用？齐佳豪同学？
+
