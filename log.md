@@ -121,5 +121,9 @@ transformer替换了cnn，效果没有CNN好，想办法改
 
 * VAE？
 
+## 22.7.7
+
+学会了conv2d,conv3d,看了[HybridSN: Exploring 3-D–2-D CNN Feature Hierarchy for Hyperspectral Image Classification](https://ieeexplore.ieee.org/document/8736016)
+
 
 
