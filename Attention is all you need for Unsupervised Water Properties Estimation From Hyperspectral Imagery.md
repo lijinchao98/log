@@ -8,7 +8,7 @@ self-attention和multihead-attention两个非常重要的模块
 
 
 
-## 位置编码图
+## embed改一下，位置编码
 
 根据论文公式计算出位置编码，或者可训练的位置编码，作者说没差，但是ViT是可训练的，具体哪个，没定论
 
@@ -46,11 +46,13 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 大家好，我是泰哥。在训练模型前，我们通常要对数据进行归一化处理来加速模型收敛。本文为大家介绍`batch normalization`和`layer normalization`的使用场景。
 
-## **1 为什么`ML`中用`BN`比较多？**![img](Attention is all you need for Unsupervised Water Properties Estimation From Hyperspectral Imagery.assets/v2-d18215cebcdd309155c414aec6739f30_720w.jpg)
+## **1 为什么`ML`中用`BN`比较多？**
+
+![img](Attention is all you need for Unsupervised Water Properties Estimation From Hyperspectral Imagery.assets/v2-d18215cebcdd309155c414aec6739f30_720w-6470610.jpg)
 
 现在有一个`batch`内的人员特征数据，分别是年龄、身高和[体重](https://www.zhihu.com/search?q=体重&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})，我们需要根据这3个特征进行性别预测，在预测之前首先要进行归一化处理。
 
-## **`ML & batch normalization`**
+### **`ML & batch normalization`**
 
 `BN`是针对每一列特征进行归一化，例如下图中计算的均值： 
 
@@ -58,7 +60,7 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 `BN`这是一种“[列归一化](https://www.zhihu.com/search?q=列归一化&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})”，同一`batch`内的数据的同一纬度做归一化，因此有3个维度就有3个均值。
 
-## **`ML & layer normalization`**
+### **`ML & layer normalization`**
 
 而`LN`则相反，它是针对数据的每一行进行归一化。即只看一条数据，算出这条数据所有特征的均值，例如下图： 
 
@@ -66,19 +68,19 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 `LN`是一种“[行归一化](https://www.zhihu.com/search?q=行归一化&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})”,是对单个样本的所有维度来做归一化。
 
-## **Why `ML&BN`?**
+### **Why `ML&BN`?**
 
 这里大家就可以看出，`LN`计算出一个人的年龄、身高、体重这三个特征的均值并对其归一化，完全没有道理和可解释性，但是`BN`则没有这个影响，因为每列的单位属性都是相同的。
 
 在机器学习任务中，数据往往是每列数据为一特征，处理的数据通常具有解释性，而列与列之间的单位属性并不相同，所以机器学习任务中用`BN`比较多。
 
-## **2 为什么`NLP`中用`LN`比较多？**
+### **2 为什么`NLP`中用`LN`比较多？**
 
 ![img](Attention is all you need for Unsupervised Water Properties Estimation From Hyperspectral Imagery.assets/v2-755fb8ba044392d7a94e80f9ec6f5d6e_720w.jpg)
 
 上图是4条文本数据组成了一个`batch`，我们假设每个字的`embedding`都为1。
 
-## **`NLP & batch normalization`**
+### **`NLP & batch normalization`**
 
 那么`BN`是针对每一列特征进行归一化，就会把4条文本相同位置的字来做归一化处理，例如：我、我、领、拥。 
 
@@ -86,7 +88,7 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 而这样做的话就破坏了一个字在原句中的原有含义。
 
-## **`NLP & layer normalization`**
+#### **`NLP & layer normalization`**
 
 而`LN`则是针对每一句话做归一化处理。 
 
@@ -94,13 +96,13 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 在归一化后使一句话中的`embedding`处于同分布。
 
-## **3 根本原因**
+### **3 根本原因**
 
 在`ML`中输入的数据一般是[矩阵](https://www.zhihu.com/search?q=矩阵&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})，每列数据都具有相同属性，所以使用`BN`较多。
 
 在`NLP`中，因为数据维度一般都是`[batch_size, seq_len, dim_size]`，我们最终希望将一句话中的词[向量](https://www.zhihu.com/search?q=向量&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})进行归一化，所以使用`LN`较多。
 
-## **4 总结**
+### **4 总结**
 
 从操作过程上来讲，`BN`针对的是同一个`batch`内的所有数据，而`LN`则是针对单个[样本](https://www.zhihu.com/search?q=样本&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A2218407312})。
 
@@ -111,3 +113,9 @@ BN 的转换是针对单个神经元可训练的——不同神经元的输入�
 
 
 ![截屏2022-06-28 17.22.37](Attention is all you need for Unsupervised Water Properties Estimation From Hyperspectral Imagery.assets/截屏2022-06-28 17.22.37.png)
+
+
+
+## 比较不同的层数，编码维数
+
+![截屏2022-06-29 10.42.02](Attention is all you need for Unsupervised Water Properties Estimation From Hyperspectral Imagery.assets/截屏2022-06-29 10.42.02.png)
