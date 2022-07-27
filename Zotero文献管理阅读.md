@@ -6,7 +6,7 @@
 
 研0用过*mendeley*，没整明白，挺好的，就是报用。
 
-<img src="Zotero文献管理阅读.assets/截屏2022-07-08 10.20.00.png" alt="截屏2022-07-08 10.20.00" style="zoom: 67%;" /><img src="Zotero文献管理阅读.assets/:Users:lijinchao:Desktop:note:log:Zotero文献管理阅读.assets:截屏2022-07-08 10.25.36.png" alt="截屏2022-07-08 10.25.36" style="zoom: 33%;" />
+<img src="Zotero文献管理阅读.assets/截屏2022-07-08 10.20.00.png" alt="截屏2022-07-08 10.20.00" style="zoom: 67%;" /><img src="Zotero文献管理阅读.assets/1.png" alt="1" style="zoom:33%;" />
 
 研1上学期用Zotero觉得挺用，pdf/caj文献拖入直接就识别了，中文的用茉莉花插件就自动从知网检索识别，刚开始用的时候只能管理文献，自动识别，记笔记，没有阅读功能，后来版本更新，可以直接在里面阅读，批注，就很好，再后来还发现了翻译插件，张佩说像德芙一样丝滑，要什么知云，有道翻译。
 
